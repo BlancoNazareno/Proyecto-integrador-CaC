@@ -1,6 +1,6 @@
 
-import jakarta.jms.Connection;
-import jakarta.resource.cci.ResultSet;
+import java.sql.Connection;
+import java.sql.ResultSet;
 import java.beans.Statement;
 import java.sql.PreparedStatement;
 import java.sql.DriverManager;
@@ -31,7 +31,8 @@ public class Persistencia {
         usuario="root";
         clave="";
         
-        cn= (Connection) DriverManager.getConnection("jdbc:mysql://" + servidor + basededatos, usuario, clave);
+        cn= (Connection) DriverManager.getConnection("jdbc:mysql://" + servidor + 
+                basededatos + "?autoReconnect=true&useSSL=false", usuario, clave);
         
         } catch (ClassNotFoundException ex) {
             Logger.getLogger(Persistencia.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,9 +43,10 @@ public class Persistencia {
     }
     
     public ResultSet consultaSQL(String busqueda){
-        ps=conectarse().prepareStatement(busqueda);
         
         try {
+            ps=conectarse().prepareStatement(busqueda);
+            
             rs= (ResultSet) ps.executeQuery();
             rsm=rs.getMetaData();           
         } catch (SQLException ex) {

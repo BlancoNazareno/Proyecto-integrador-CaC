@@ -99,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 --
 
 INSERT INTO `usuario` (`idUsuario`, `usuario`, `clave`, `nombreCompleto`, `email`) VALUES
-(1, 'jperez', '1234', 'Juan Pérez', 'jperez@gmail.com');
+(1, 'jperez', '1234', 'Juan Pérez', 'jperez@gmail.com'), (2,'jdoe', '0000', 'Jane Doe', jdoe@gmail.com');
 
 --
 -- Indexes for dumped tables
