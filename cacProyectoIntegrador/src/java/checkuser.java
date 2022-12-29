@@ -1,7 +1,3 @@
-import java.io.IOException;
-
-import java.io.PrintWriter;
-
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
@@ -9,8 +5,14 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.PrintWriter;
 
-
+//librerías faltantes
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -48,8 +50,22 @@ public class checkuser extends HttpServlet {
 
             /* TODO output your page here. You may use following sample code. */
 
-            out.println("<h1>El usuario es: " + request.getParameter("inputEmail") + "</h1>");
+//            out.println("<h1>El usuario es: " + request.getParameter("inputEmail") + "</h1>");
+            Persistencia base = new Persistencia();
+            ResultSet rs = base.consultaSQL("select * from USUARIOS");
 
+            if (rs == null) {
+                out.println("No hay usuarios que coinciden con la búsqueda");
+            } else {
+                while (rs.next()) {
+                    out.println(rs.getString("usuario"));
+                    out.println(rs.getString("clave"));
+                    out.println(rs.getString("nombreApellido") + "<br>");
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(checkuser.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
