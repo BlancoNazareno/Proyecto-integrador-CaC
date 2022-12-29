@@ -51,19 +51,21 @@ public class checkuser extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
 
 //            out.println("<h1>El usuario es: " + request.getParameter("inputEmail") + "</h1>");
-            Persistencia base = new Persistencia();
-            ResultSet rs = base.consultaSQL("select * from USUARIOS");
 
-            if (rs == null) {
-                out.println("No hay usuarios que coinciden con la búsqueda");
-            } else {
+           Persistencia base = new Persistencia();
+            ResultSet rs = base.consultaSQL("select * from usuario where usuario ="
+            + "'" +  request.getParameter("inputEmail") + "'" + "and clave = "
+            + "'" +  request.getParameter("inputPassword") + "'");
+
                 while (rs.next()) {
                     out.println(rs.getString("usuario"));
-                    out.println(rs.getString("clave"));
+//                    out.println(rs.getString("clave"));
                     out.println(rs.getString("nombreApellido") + "<br>");
                 }
-            }
-
+                if (rs.first()==false) {
+                out.println("Usuario y/o clave incorrecta");
+                } 
+            
         } catch (SQLException ex) {
             Logger.getLogger(checkuser.class.getName()).log(Level.SEVERE, null, ex);
         }

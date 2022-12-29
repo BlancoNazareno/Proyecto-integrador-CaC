@@ -26,7 +26,7 @@ public class Persistencia {
             Class.forName("com.mysql.jdbc.Driver");
         
         
-        servidor="localhost:3306";
+        servidor="localhost:3306/";
         basededatos="cacproyectointegrador";
         usuario="root";
         clave="";
@@ -47,7 +47,7 @@ public class Persistencia {
         try {
             ps=conectarse().prepareStatement(busqueda);
             
-            rs= (ResultSet) ps.executeQuery();
+            rs=ps.executeQuery();
             rsm=rs.getMetaData();           
         } catch (SQLException ex) {
             Logger.getLogger(Persistencia.class.getName()).log(Level.SEVERE, null, ex);

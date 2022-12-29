@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 29, 2022 at 12:47 AM
+-- Generation Time: Dec 29, 2022 at 10:54 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -90,16 +90,16 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 `idUsuario` int(11) NOT NULL,
   `usuario` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
   `clave` varchar(20) COLLATE utf8_spanish_ci NOT NULL,
-  `nombreCompleto` varchar(50) COLLATE utf8_spanish_ci NOT NULL,
-  `email` varchar(100) COLLATE utf8_spanish_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
+  `nombreApellido` varchar(50) COLLATE utf8_spanish_ci NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci;
 
 --
 -- Dumping data for table `usuario`
 --
 
-INSERT INTO `usuario` (`idUsuario`, `usuario`, `clave`, `nombreCompleto`, `email`) VALUES
-(1, 'jperez', '1234', 'Juan Pérez', 'jperez@gmail.com'), (2,'jdoe', '0000', 'Jane Doe', jdoe@gmail.com');
+INSERT INTO `usuario` (`idUsuario`, `usuario`, `clave`, `nombreApellido`) VALUES
+(1, 'jperez@gmail.com', '1234', 'Juan Pérez'),
+(2, 'jdoe@gmail.com', '0000', 'Jane Doe');
 
 --
 -- Indexes for dumped tables
@@ -152,7 +152,7 @@ MODIFY `idProvincia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+MODIFY `idUsuario` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
