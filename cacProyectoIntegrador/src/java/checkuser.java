@@ -14,7 +14,7 @@ import jakarta.servlet.http.HttpSession;
 
 
 
-@WebServlet(name = "checkusert", urlPatterns = {"/checkuser"})
+@WebServlet(name = "checkuser", urlPatterns = {"/checkuser"})
 
 public class checkuser extends HttpServlet {
 
