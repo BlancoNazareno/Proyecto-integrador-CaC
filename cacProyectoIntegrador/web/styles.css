@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+
+*{
+
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+body{
+
+  background-color: white;
+  font-family: 'Poppins', sans-serif;
+  /* fuente Popping importada desde Google Fonts */
+
+}
+
+p{
+    margin-top: 15px;
+}
+
+hr{
+     background-color: orange;
+     height: 15px;
+     margin-top: -5px;
+     margin-bottom: -5px;
+}
+
+#header{
+    margin: 0px;
+    width: 500px;
+    position: fixed;
+    z-index:2;
+    /* z-index para organizar el orden de los elementos (valores más altos priorizan posiciones primeras de los objetos) */
+    text-align: right;
+}
+
+
+ul {
+
+     list-style: none;
+}
+
+.nav li a {
+
+      background-color: rgb(10,11,12);
+      color:white;
+      text-decoration: none;
+      padding: 10px 15px;
+      display: block;
+}
+
+.nav li a:hover{
+    /* pseudoelemento que permite modificar una propiedad cuando el mouse se posiciona encima */
+    background-color: rgb(58,58,36);
+}
+
+.nav > li {
+    /* se aplica a los li más próximos al nav */
+    float: left;
+    /* lleva el menú del nav a la izquierda */
+}
+
+
+.nav li ul {
+    display:none;
+    /* por defecto, todos los ítems se muestran hacia abajo. Eso se mantiene, pero sin verse */
+    position: absolute;
+    min-width: 140px;
+}
+.nav li:hover > ul{
+    display: block;
+    /* se aplica a los ul más próximos al li, haciendo que estos se muestren (en bloque) */
+    /* <va de la mano con la propiedad anterior> */
+}
+
+
+.nav li ul li {
+
+    position: relative;
+    /* desplaza los submenúes de los submenúes hacia abajo */
+}
+.nav li ul li ul {
+
+    right: -140px;
+    top: 0px;
+    /* muestra los ítems de los submenúes de los submenúes corridos hacia la izquierda */
+    /* <va de la mano con la propiedad anterior> */
+}
+
+
+.imagen
+{
+    z-index: 1;
+    position: relative;
+    margin: 0px;
+}
+
+.texto{
+
+    z-index: 1;
+    position: relative;
+    margin: 20px 30px 0px 30px;
+    text-align: justify;
+}
+
+.bodyNew{
+    margin: 10px;
+    padding: 10px;
+}
+
+#logoIngresar{
+display: block;
+margin-left: auto;
+margin-right: auto;
+height: 10rem;
+}
+
+#formIngresar{
+text-align: center;
+}
+
+.form-control{
+text-align: center;
+}
+
+.container
+{
+text-align: center;
+/* margin-left: auto;
+margin-right: auto;  */
+}
